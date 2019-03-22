@@ -33,7 +33,7 @@ Once you copied it:
 
 Command Line | Gitkraken
 ------------ | -------------
-```git clone git@github.com:mfioravanti-yseop/gitflow_workshop.git``` | Click on *Clone repository*, and then: ![Clone](/doc/images_new/clone.PNG)
+```git clone git@github.com:mfioravanti-yseop/gitflow_workshop.git``` | Click on *Open a Project*, *Clone*, and then: ![Clone](/doc/images/clone.PNG)
 
 
 You can now open the project in Visual Studio Code. You will see that it's a very simple knowledge base.
@@ -57,7 +57,7 @@ As you can see here:
 
 ## Exercise 1: Complete feature integration without conflict
 
-Let's imagine you are working alone on this project, or that *develop* does not change while you are doing your feature. That will be our first use case, before complicating it a little!
+Let's imagine a very easy and idealistic case, where you are working alone on a project, or the *develop* branch does not change while you are doing your feature. That will be our first use case, and we will do it together.
 
 In this exercise, you will complete all the following tasks:
 
@@ -68,6 +68,8 @@ In this exercise, you will complete all the following tasks:
 * push to the remote
 * integrate to *develop*
 
+For this first exercise, we don't use Pull Requests, because we really want to understand the deep functioning of Git in this case.
+
 
 ### Create a Branch
 
@@ -77,18 +79,17 @@ If you are in command line, you need to do this step first:
 git checkout develop
 ```
 
-Now, let's start by creating a branch named **feature/main** and switch to it. 
+Now, let's start by creating a branch named **feature/client_desc** and switch to it. 
 
 
 Command Line | Gitkraken
 ------------ | -------------
-```git checkout -b feature/main``` | Right-click on *develop*, select *Create branch here*, and type *feature/main*.
+```git checkout -b feature/client_desc``` | Right-click on *develop*, select *Create branch here*, and type *feature/client_desc*.
 
-You will now go to the project folder, in the file *main.js*, and add the following code int the *main* body:
 
-```js
-console.log('power number:', calculatePower(4, 5));
-```
+
+You will now go to the project folder, in the file *src/_texts/ClientInformations.ytextfunction*, and add some code in the xml tag ```<yseop-yml:text>```.
+
 
 ### See the State
 
@@ -105,7 +106,7 @@ The next step is to create a **commit**. This means you have to list the modific
 
 In command line:
 ```
-git add main.js 
+git add src/_texts/ClientInformations.ytextfunction
 ```
 or to put all the modified files:
 ```
@@ -113,7 +114,7 @@ git add .
 ```
 You have to name well the commit, so in the history, it will be easy for the others developers to understand in what the modifications consist.
 ```
-git commit -m "feat: change the main content" 
+git commit -m "feat: change the client description" 
 ```
 
 In Gitkraken, you have the user interface to help you! In the changes section (on thr right), you can *Stage* modifications, meaning include them in the commit. After that, you can set a name to the commit. 
@@ -128,7 +129,7 @@ After those operations, your modifications are still only on your computer! You 
 
 Command Line | Gitkraken
 ------------ | -------------
-```git push feature/main <remote_name>``` | Click on *Push* on the top, and select your remote: ![Push](/doc/images/push_branch.PNG)
+```git push feature/client_desc <remote_name>``` | Click on *Push* on the top, and select your remote: ![Push](/doc/images/push_branch.PNG)
 
 ### Integrate to *develop*
 
@@ -151,7 +152,7 @@ Now it's time to properly integrate! The principle is that you will indicate a b
 
 Command Line | Gitkraken
 ------------ | -------------
-```git merge feature/main``` | Right-click on *feature/main*, and click on *Merge into develop*: ![Merge](/doc/images/merge_into.PNG)
+```git merge feature/client_desc``` | Right-click on *feature/client_desc*, and click on *Merge into develop*: ![Merge](/doc/images/merge_into.PNG)
 
 
 And now finally, you need to push *develop* on the remote repository:
@@ -160,11 +161,21 @@ Command Line | Gitkraken
 ------------ | -------------
 ```git push <remote_name> develop``` | Click on the button *Push* on the top.
 
-Here is what you're supposed to obtain:
-
-![State after integration](/doc/images/state_after_1.PNG)
 
 NB: Note that with Gitkraken, the all *merge* operation can be made very easily: you just have to drag and drop your branch on *develop*, and choose *merge in develop*!
+
+## Exercise 2: Integrate through a Pull Request
+
+This time, we will reproduce the behaviour we are really supposed to have with *Gitflow*.
+
+### Feature Creation
+
+The first steps are identical to the previous exercise's, so you can:
+* create a branch feature
+* create a commit
+* push to the repository
+
+Just so you know, Git provides a tool to help you with the git flow features. You can find all the informations (https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)[here].
 
 ## Exercise 2: Create features in parallel
 
@@ -634,3 +645,8 @@ https://confluence.atlassian.com/bitbucket/git-fast-forwards-and-branch-manageme
 
 Git Ignore:
 https://fr.atlassian.com/git/tutorials/saving-changes/gitignore
+
+
+Gitflow:
+https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+
