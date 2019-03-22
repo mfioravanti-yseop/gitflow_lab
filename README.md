@@ -2,11 +2,12 @@
 
 ## Introduction
 
-This workshop is for Yseopers that would like to upgrade their skills about Git and understand the functioning of Gitflow. It is progressive, so the first parts can be process very fast to focus on the harder ones. Each one at his own pace :-)
+This workshop is for Yseopers that would like to refresh their knowledge about Git and understand the functioning of Gitflow. It is progressive, so the first parts can be processed very fast to focus on the harder ones. Each one at his own pace :-)
 
 It is based on [a very fancy documentation](https://eborel-yseop.github.io/git-guide/) written by Etienne Borel, and adapted to be a practical exercise.
 
-There is also a [version](https://mfioravanti-yseop.github.io/git_lab/) for stand-alone users that have just arrived in the company and want to do a auto-training.
+There is also a [version](https://mfioravanti-yseop.github.io/git_lab/) for stand-alone users that have just arrived in the company, or want to improve their skills, and want to do a auto-training.
+
 
 ## Prerequistes
 
@@ -14,16 +15,15 @@ This lab won't explain to you what is Git, it takes for granted that you have an
 
 - **Git**, obviously! And having a personal account on Github (generally: *yourlogin*-yseop)
 - **Visual Studio Code** (recommended, not mandatory)
-- **Gitkraken** (recommended, not mandatory)
+- a graphical Git Client, like **GitExtension** or **Gitkraken** (recommended, not mandatory)
 
-Almost all the instructions will be provided for both the command line and Gitkraken, feel free to use whatever you want!
+Almost all the instructions will be provided for both the command line and the Git Client, feel free to use whatever you want!
 
 ## Let's Get Started!
 
 When you want to start working on a project versioned with Git, there are two ways to proceed:
 * either you **clone** an existing project, meaning you create a copy on your computer to work on it
 * or you create a project from scrach on your computer, and you **init** it, so you could later save it on Git
-
 
 Here, we will see how to clone, which is the most common use. The first thing is to get the Git address where to find the project. You can retrieve it on Github, as you can see on the following image:
 
