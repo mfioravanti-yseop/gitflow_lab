@@ -2,8 +2,10 @@
 
 ## Introduction
 
-This workshop is for Yseopers that would like to upgrade their skills about Git and understand the functioning of Gitflow. It is progressive, so the first parts can be process very fast to focus on the harder ones. Each one at his own pace :-) +
+This workshop is for Yseopers that would like to upgrade their skills about Git and understand the functioning of Gitflow. It is progressive, so the first parts can be process very fast to focus on the harder ones. Each one at his own pace :-)
+
 It is based on [a very fancy documentation](https://eborel-yseop.github.io/git-guide/) written by Etienne Borel, and adapted to be a practical exercise.
+
 There is also a [version](https://mfioravanti-yseop.github.io/git_lab/) for stand-alone users that have just arrived in the company and want to do a auto-training.
 
 ## Prerequistes
