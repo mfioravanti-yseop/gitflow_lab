@@ -175,9 +175,43 @@ The first steps are identical to the previous exercise's, so you can:
 * create a commit
 * push to the repository
 
-Just so you know, Git provides a tool to help you with the git flow features. You can find all the informations (https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)[here].
+Just so you know, Git provides a tool to help you with the git flow features. You can find all the informations [here](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
-## Exercise 2: Create features in parallel
+### Create a Pull Request
+
+Now, you have to create a Pull Request on Github. When, you arrive on the main page of your project, you will see this header:
+
+![Start PR](/doc/images/pr_start.PNG)
+
+You can click on the button *Compare and Pull Request*, and find a wizard for the PR creation:
+
+
+![Create PR](/doc/images/pr_create.PNG)
+
+The important informations here are:
+
+* **base**: the branch in which you want to merge your feature. It's most of the time *develop*, unless you want to merge it into another feature branch! But it can never be *master*!!
+* **compare**: your current feature branch
+* the title: must have a very explicit name, and start with a selector that follow the commit name convention (*feat*, *fix*, *chore*, etc.).
+* the description: you can here put informations that can help the reviewers understand what is in your feature, or to know how to use or test the feature.
+* **reviewers**: you can set a list of persons that will be asked to put a review, so they will receive a notification and "follow" the PR. Note that a user can do a review even if not explicitely asked, as long as he does have the rights to.
+* **assignees**: you should assign here yourself and the other contributors to the PR. They will follow the subject too.
+* **labels**: if they exist in your project, they are informations about the current state of the PR. For example, a label *ready for review*, or *on hold* can be useful.
+* **projects** and **milestones**: once again, it depends on your project configuration. If for example, you know you are working on a POC and also a v1 version, you can create projects with those names, and know easily in which project a feature will be added.
+
+Once you have filled everything that is interesting for your PR, you can click on *Create pull request*.
+
+### Comment a Pull Request
+
+
+
+### Merge it
+
+
+
+
+
+## Exercise 3: Create features in parallel
 
 Generally, there are several developers doing features on a project, and we will simulate that! So you will repeat the same steps as for *Exercise 1*, everytime creating your branch from *develop*, and ***not doing yet the integration of the feature in develop!***.
 
