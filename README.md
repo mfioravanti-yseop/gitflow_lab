@@ -33,7 +33,7 @@ Once you copied it:
 
 Command Line | Gitkraken
 ------------ | -------------
-```git clone git@github.com:mfioravanti-yseop/gitflow_workshop.git``` | Click on *Clone repository*, and then: ![Clone](/doc/images/clone.PNG)
+```git clone git@github.com:mfioravanti-yseop/gitflow_workshop.git``` | Click on *Clone repository*, and then: ![Clone](/doc/images_new/clone.PNG)
 
 
 You can now browse the folder, and see the code source inside (very interesting code, I admit)!
