@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This workshop is for Yseopers that would like to refresh their knowledge about Git and understand the functioning of Gitflow. It is progressive, so the first parts can be processed very fast to focus on the harder ones. Each one at his own pace :-)
+This workshop is for Yseopers that would like to refresh their knowledge about Git and understand the functioning of Gitflow. It is progressive, so for an advance Git user, the first parts can be processed very fast to focus on the harder ones. Each one at his own pace :-)
 
 It is based on [a very fancy documentation](https://eborel-yseop.github.io/git-guide/) written by Etienne Borel, and adapted to be a practical exercise.
 
@@ -36,7 +36,7 @@ Command Line | Gitkraken
 ```git clone git@github.com:mfioravanti-yseop/gitflow_workshop.git``` | Click on *Clone repository*, and then: ![Clone](/doc/images_new/clone.PNG)
 
 
-You can now browse the folder, and see the code source inside (very interesting code, I admit)!
+You can now open the project in Visual Studio Code. You will see that it's a very simple knowledge base.
 
 
 ## An overall about Gitflow
@@ -44,7 +44,7 @@ You can now browse the folder, and see the code source inside (very interesting 
 At Yseop, we use the workflow named **Gitflow** to manage our repositories. You can find more information [here](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
 
 
-Let's have a look on the current working tree (you should be on the branch *develop*):
+Let's have a look on this working tree as an example:
 
 ![Gitflow](/doc/images/gitflow.PNG)
 
@@ -53,42 +53,6 @@ As you can see here:
 * To release a version, a branch **release/** is created from *develop*, and then integrated to *master*. If wanted, a tag with the version number is created. Then *master* in merged into *develop*.
 * The branch master represents then the last released version at each moment. If we want to fix a bug, you can create a branch **hotfix/** from *master*, fix the bug, and then merge it back to *master*. A new tag is created with a new version number, and *master* is merged again in *develop*.
 * There are other branch types like **refactor/**, **bugfix/**, but please respect the [conventions](https://www.conventionalcommits.org/en/v1.0.0-beta.3/) and don't invent your own!
-
-NB: in this lab, we won't do Pull Requests.
-
-### Add a Remote
-
-A thing you won't have to do in general, but that you ***MUST*** do here, is change the remote, so you won't overwrite the lab model! Here's how you should proceed.
-
-First, go to your Github personal account and create a new **private** repository: *myLab*. Create it without readme file and without .gitignore.
-
-![Github](/doc/images/create_repo.PNG)
-
-You will arrive on a page like this, and you have to copy the ssh address:
-
-![Github](/doc/images/repository_created.PNG)
-Then, if you don't have Gitkraken, you can do those commands in command line:
-
-
-Command Line | Example
------------- | -------------
-```git remote add <yourname> <git address>``` | ```git remote add mfioravanti git@github.com:mfioravanti-yseop/myLab.git```
-
-The name of the repo is not really important here, you can use wathever you want! But to understand the rest of the lab, it will be better to use your name :-)
-
-
-If you have Gitkraken, on the left menu, click on the *+* in the section **Remote**, and in the tab *URL*, fill as followed (using your login):
-
-![Remote](/doc/images/add_remote.PNG)
-
-You must specify that your remote is used by default for the branches *develop* and *master*. To do so:
-
-![Remote](/doc/images/change_remote_1.PNG)
-
-![Remote](/doc/images/change_remote_2.PNG)
-
-
-That's it for the init, now we will get down to business!
 
 
 ## Exercise 1: Complete feature integration without conflict
