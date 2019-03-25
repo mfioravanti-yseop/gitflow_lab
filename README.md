@@ -6,14 +6,14 @@ This workshop is for Yseopers that would like to refresh their knowledge about G
 
 It is based on [a very fancy documentation](https://eborel-yseop.github.io/git-guide/) written by Etienne Borel, and adapted to be a practical exercise.
 
-There is also a [version](https://mfioravanti-yseop.github.io/git_lab/) for stand-alone users that have just arrived in the company, or want to improve their skills, and want to do an auto-training. It is more centered on Git, though, and doesn't deal  much with GitFlow (Pull Requests can't be handled alone!).
+There is also a [version](https://mfioravanti-yseop.github.io/git_lab/) for stand-alone users that have just arrived in the company, or want to improve their skills, and want to do an auto-training. It is more centered on Git, though, and doesn't deal  much with GitFlow (Pull Requests can't be handled alone!). But it goes further in the features, so don't hesitate to have a look!
 
 
 ## Prerequistes
 
-This lab won't explain to you what is Git, it takes for granted that you have an overall knowing of the subject! Also, you OS does not matter, but you should have installed the following items:
+This workshop won't explain you what is Git, it takes for granted that you have an overall knowing of the subject! Also, you OS does not matter, but you should have installed the following items:
 
-- **Git**, obviously! And having a personal account on Github, related to the workspace Yseop (generally: *yourlogin*-yseop)
+- **Git**, obviously! And having a personal account on Github, related to the Github's workspace Yseop (generally: *yourlogin*-yseop)
 - **Visual Studio Code** (recommended, not mandatory)
 - a graphical Git Client, like **GitExtension** or **Gitkraken** (recommended, not mandatory)
 
@@ -36,7 +36,7 @@ Command Line | Gitkraken
 ```git clone git@github.com:mfioravanti-yseop/gitflow_workshop.git``` | Click on *Open a Project*, *Clone*, and then: ![Clone](/doc/images/clone.PNG)
 
 
-You can now open the project in Visual Studio Code. You will see that it's a very simple knowledge base.
+You can now open the project in Visual Studio Code. You will see that it's a very simple knowledge base. Note that you can't use YBS to work on this project, because it does not compatible with GitFlow!
 
 
 ## An overall about Gitflow
@@ -57,7 +57,7 @@ As you can see here:
 
 ## Exercise 1: Complete feature integration without conflict
 
-Let's imagine a very easy and idealistic case, where you are working alone on a project, or the *develop* branch does not change while you are doing your feature. That will be our first use case, and we will do it together.
+Let's imagine a very simple and idealistic case, where you are working alone on a project, or the *develop* branch does not change while you are doing your feature. That will be our first use case, and we will do it together.
 
 In this exercise, you will complete all the following tasks:
 
@@ -68,7 +68,7 @@ In this exercise, you will complete all the following tasks:
 * push to the remote
 * integrate to *develop*
 
-For this first exercise, we don't use Pull Requests, because we really want to apprehend the deep functioning of Git first. That's an important step to understand what Github is really doing in the background.
+For this first exercise, we don't use Pull Requests, because we really want to apprehend the deep functioning of Git first. That's an important step to understand what Github is really doing in the background when using Pull Requests.
 
 
 ### Create a Branch
@@ -133,8 +133,6 @@ Command Line | Gitkraken
 
 ### Integrate to *develop*
 
-As this Lab is really centered on Git, we won't use Pull Requests for integration. At Yseop, we always use PRs and integrate them with Github, so obviously you will do all the following steps via Github. But this lab will help you understand what's really going on in the background!
-
 To integrate your work, you need to merge it in *develop*. To do so, you will first set *develop* as your current branch:
 
 Command Line | Gitkraken
@@ -172,7 +170,7 @@ NB: Note that with Gitkraken, the all *merge* operation can be made very easily:
 
 ## Exercise 2: Integrate through a Pull Request
 
-This time, we will reproduce the behaviour we are really supposed to have with *Gitflow*.
+This time, we will use the method we are really supposed to follow with *Gitflow*.
 
 ### Feature Creation
 
@@ -182,7 +180,7 @@ The first steps are identical to the previous exercise's, so you can:
 * create a commit
 * push to the repository
 
-Just so you know, Git provides a tool to help you with the git flow features. You can find all the informations [here](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+Just so you know, Git provides a tool to help you with the GitFlow features. You can find all the informations [here](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
 ### Create a Pull Request
 
@@ -199,12 +197,12 @@ The important informations here are:
 
 * **base**: the branch in which you want to merge your feature. It's most of the time *develop*, unless you want to merge it into another feature branch! But it can never be *master*!!
 * **compare**: your current feature branch
-* the title: must have a very explicit name, and start with a selector that follow the commit name convention (*feat*, *fix*, *chore*, etc.).
-* the description: you can here put informations that can help the reviewers understand what is in your feature, or to know how to use or test the feature.
+* the title: must have a very explicit name, and start with a prefix that follows the commit name convention (*feat*, *fix*, *chore*, etc.).
+* the description: here, you can put information that can help the reviewers understand what is in your feature, or to know how to use or test the feature.
 * **reviewers**: you can set a list of persons that will be asked to put a review, so they will receive a notification and "follow" the PR. Note that a user can do a review even if not explicitely asked, as long as he does have the rights to.
-* **assignees**: you should assign here yourself and the other contributors to the PR. They will follow the subject too.
-* **labels**: if they exist in your project, they are informations about the current state of the PR. For example, a label *ready for review*, or *on hold* can be useful.
-* **projects** and **milestones**: once again, it depends on your project configuration. If for example, you know you are working on a POC and also a v1 version, you can create projects with those names, and know easily in which project a feature will be added.
+* **assignees**: you should assign yourself and the other contributors to the PR. They will receive notifications on this PR too.
+* **labels**: if they exist in your project, those are information about the current state of the PR. For example, a label *ready for review*, or *on hold* can be useful.
+* **projects** and **milestones**: once again, it depends on your project configuration. If for example, you know you are working on a POC and also a v1 version, you can create projects with those names, and know easily in which project a feature should be included.
 
 Once you have filled everything that is interesting for your PR, you can click on *Create pull request*.
 
@@ -212,33 +210,33 @@ Once you have filled everything that is interesting for your PR, you can click o
 
 Once the Pull Request has been created, it's up to the reviewer! Reviewers can be developers, testers, or practically anyone that can give a point of view on the feature!
 
-A review consist in reading the code, adding some comments, asking questions, suggesting changes, ...  The reviewer also has to test the feature. It is obviously not prohibited to discuss it out of PR if the PR owner is physically near to you ;-) There can be several reviewers, and they can agree to split the tasks (one reading code, one testing, for eg.).
+A review consist in reading the code, adding some comments, asking questions, suggesting changes, ...  It is also the reviewer's responsibility to test the feature. Note that it is not prohibited to discuss it out of PR, if the PR owner is physically nearby ;-) There can be several reviewers, and they can also agree to split the tasks (one reading code, one testing, for eg.).
 
 Reviewing the code, the reviewer can go in the tab *Files changed* and add comments, by clicking the little "+" on the left of a code line. After commenting, he can choose to continue the review (the comment will stay in *pending* state) and add more comments, or finish the review.
 
 ![Comment code PR](/doc/images/pr_comment.PNG)
 
 When all the code reviewing and testing tasks are completed, the reviewer has 3 options:
-* **Comment**: the reviewer doesn't feel ready for taking his decision, he just want to ask questions.
+* **Comment**: the reviewer doesn't feel ready for taking his decision, he just want to ask questions or suggest changes for now.
 * **Approve**: the reviewer is ok with the feature, and give its approval.
 * **Request Changes**: the reviewer decides that something must be fixed or changed before merging the feature. He previously detailed it in its comments in the code, or add a comment to his review to explain exactly which changes he expects.
 
 ![Request changes PR](/doc/images/pr_request_changes.PNG)
 
-The owner of the PR will then be notified of the reviewer's decision. If changes are requested, he will have to fix it, and push another commit. And so on, until he finally receive an approbation!
+The owner of the PR will then be notified of the reviewer's decision. If changes are requested, he will have to process them, and push another commit. And so on, until he finally receive an approbation!
 
 
 ### Merge it
 
-After receiving the approbation, the owner is now ready to merge the Pull Request! Or, almost: he must unsure that all the checks have passed. For example, the branch can be not up-to-date with the base branch if it has changed in the meantime. In this case, the owner must proceed, in local, to a **merge** or a **rebase**. Note hat a rebase is cleaner, but can sometimes cancel the reviews (if a *force push* was necessary)! You will then have to ask for the reviewers to accept it again.
+After receiving the approbation, the owner is now ready to merge the Pull Request! Or, almost: he must unsure first that all the checks have passed. For example, the branch can be not up-to-date with the base branch if it has changed in the meantime. In this case, the owner must proceed, in local, to a **merge** or a **rebase**. Note hat a rebase is cleaner, but can sometimes cancel the reviews (if a *force push* was necessary)! You will then have to ask for the reviewers to accept it again.
 
 When you are finally ready, let's merge it! It is very easy, you just have to click on the button **Merge Pull Request**. Note that if you prefer not keeping the history of all the commits, you can click on the arrow on the right on the button, and choose **Squash and merge**: all your commits will then be gathered in a single one, and the comment will list the commits before squashing. There is also a third option, **Rebase and merge**. This one must be used very carefully, because the new code in the base branch can interact with yours, even though Github didn't detect conflicts.
 
 ![PR ready for merge](/doc/images/pr_approved.PNG)
 
-Please unsure that the message of the squashing commit also respect the naming convention!
+Please unsure that the message of the squashing commit also respects the naming convention!
 
-After merging, Github confirm you that the merge was successful and that you can delete the branch safely. You should really do it, because the feature is over, and the branch is now useless!
+After merging, Github confirms you that the merge was successful and that you can delete the branch safely. You should really do it, because the feature is over, and the branch is now useless!
 
 ![PR merged](/doc/images/pr_merged.PNG)
 
@@ -356,7 +354,7 @@ The part between the brackets and the equal signs is what was on the base branch
 * keep both
 * do a mix of them
 
-You can edit manually the file, or use a merge tool. I personally suggest you to use Visual Studio Code that will very facilitate your work, since you'll only have to click on the button above to choose what to do:
+You can edit manually the file, or use a merge tool. I personally suggest you to use Visual Studio Code that will very facilitate your work, since you'll generally just have to click on the button above to choose what to do:
 
 ![Conflicts](/doc/images/conflict.PNG)
 
@@ -395,7 +393,7 @@ Command Line | Gitkraken
 
 ## Exercise 4: use the stash
 
-Let's do a pause in complex features and learn an easy one :-) We will now talk about the **stash**.
+Let's finish with an easy feature :-) We will now talk about the **stash**.
 It is a tool that allows you to put apart your modifications for a moment, so you can proceed to other operations. For example, it is not possible to do a rebase if you have current modifications not commited. 
 
 There are three features:
@@ -433,7 +431,7 @@ You are now in this situation :
 * you know there is a new textfunction that do a brief of the company in *develop* (thanks to the commit name), and you'll like to use it. 
 * You don't want to commit and push your work for now because it won't compile.
 
-That's the right time to use the stash!
+That's the right situation to use the stash!
 
 Command Line | Gitkraken
 ------------ | -------------
