@@ -244,30 +244,31 @@ NB: there is a feature **git flow** in the last versions of Git that allows you 
 
 ## Exercise 3: Create features in parallel
 
-Generally, there are several developers doing features on a project, and we will test that in this exercise! The first three steps will repeat the same steps as for *Exercise 1*, everytime creating your branch from *develop*, and ***not doing yet the integration of the feature in develop!***.
+Generally, there are several developers doing features on a project, and we will test that in this exercise! The first three steps will repeat the same steps as for *Exercise 1*, everytime creating your branch from *develop*, and ***not doing yet the integration of the feature in develop***.
 
-### 2.1: Add a feature
+### User 1: Add a feature
 
-Create a branch *feature/divide*, and in the file *src/file3.js*, create a function divide(a,b) that returns the result of a / b.
+Create a branch *feature/delivery*, and in the file *src/_texts/DeliveryProcess.ytextfunction*, modify the content of the text.
 
-### 2.2: add another independent feature
+### User 2: add another independent feature
 
-Create a branch named *feature/change_message*, and in the file *src/file1.js*, change the message of the console.log.
+Create a branch named *feature/product_desc*, and in the file *src/_texts/ProductDescription.ytextfunction*, change the content of the text to describe the product.
 
+### User 3: modify the same file as another feature
 
-### 2.3: modify the same file as another feature
-
-You'll create a third feature, but this time, we will willingly provoke a conflict! So create a branch *feature/multiply*, still on *develop*, and modify again *src/file3.js*. Add a function that multiply, just after the function *power*.
-
-
-### 2.4: integrate the first feature
-
-This part is the easy one, and you could integrate in *develop* exactly how you did in Exercise 1.
+You'll create a third feature, but this time, we will willingly provoke a conflict! So create a branch *feature/related_products*, still on *develop*, and modify again *src/_texts/ProductDescription.ytextfunction*. Don't touch the current text, but add just after a list of related products.
 
 
-### 2.5: integrate a feature after the base branch has changed
+### User 1: integrate the first feature
 
-The branch *feature/change_message* has no conflict with the base branch *develop*. But at this state, it is based on an old version of *develop*. So we have two ways to proceed.
+This part is the easy one, and you could integrate *feature/delivery* in *develop* via a PR, exactly how you did in Exercise 2.
+
+
+### User 2: integrate a feature after the base branch has changed
+
+You can create a Pull Request for the branch *feature/product_desc*.
+
+The branch *feature/product_desc* has no conflict with the base branch *develop*. But at this state, it is based on an old version of *develop*. Github will indeed tell you that your branch is not up-to-date. So we have two ways to proceed.
 
 * either you do directly a **merge**: this means you reunite your branch with the actual state of *develop*
 * or you do a **rebase** first: this means you take the actual state of *develop* and put your work after that
@@ -281,11 +282,11 @@ Directly merge | Rebase first
 
 You can see that the history for the rebase is clearer! So that's the method we will use here.
 
-First, you will checkout the branck feature/change_message.
+First, you will checkout the branck *feature/product_desc*.
 
 Command Line | Gitkraken
 ------------ | -------------
-```git checkout feature/change_message``` | Right-click on the branch *feature/change_message*, choose *Checkout feature/change_message*.
+```git checkout feature/product_desc``` | Right-click on the branch *feature/product_desc*, choose *Checkout feature/product_desc*.
 
 Then, you will get the last version of *develop* from the remote:
 
@@ -301,13 +302,13 @@ Command Line | Gitkraken
 
 NB: Note that with Gitkraken, the all *rebase* operation can be made very easily: you just have to drag and drop your branch on *develop*, and choose *rebase on develop*!
 
-After doing that, you can repeat the method to merge your branch into *develop*.
+After doing that, you can continue the PR process.
 
 ### 2.6 Handle conflicts
 
 We are now going to address the harder part of Git: conflicts! It will occur very often that your work will enter in conflict with the work of someone else. Sadly, the first arrived wins, and the other one has to handle the conflicts. You can sometimes negociate with the first commiter to do the painful merge together, but in case you are alone, the first rule is: don't panic!
 
-Like for the previous part, you will checkout the branch (*feature/multiply*), and get the last version of *develop* from the remote. Now, you'll launch an operation **rebase**, and this time, it won't go well!
+Like for the previous part, you will checkout the branch (*feature/related_products*), and get the last version of *develop* from the remote. Now, you'll launch an operation **rebase**, and this time, it won't go well!
 
 #### General Behaviour
 
