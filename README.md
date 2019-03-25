@@ -154,6 +154,12 @@ Command Line | Gitkraken
 ------------ | -------------
 ```git merge feature/client_desc``` | Right-click on *feature/client_desc*, and click on *Merge into develop*: ![Merge](/doc/images/merge_into.PNG)
 
+Note that you can choose the option **fast-forward**: if you do so, the history will be a little different: 
+
+With Fast-forward | Without Fast-forward
+------------ | -------------
+![Merge with Fast Forward](/doc/images/merge_with_ff.PNG) | ![Merge without Fast-Forward](/doc/images/merge_without_ff.PNG)
+
 
 And now finally, you need to push *develop* on the remote repository:
 
