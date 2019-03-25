@@ -383,10 +383,6 @@ Command Line | Gitkraken
 
 If there is no more commits and/or conflicts, the rebase will proceed to the end. After that, you can safely merge your branch, as we did in the previous parts!
 
-Here's what you are supposed to obtain:
-
-![After Conflict](/doc/images/after_conflict.PNG)
-
 
 #### What if I did wrong?
 
