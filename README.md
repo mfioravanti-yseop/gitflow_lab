@@ -360,7 +360,7 @@ You can edit manually the file, or use a merge tool. I personally suggest you to
 
 ![Conflicts](/doc/images/conflict.PNG)
 
-Here, you will choose *Accept both Changes*, but also modify the file after, because a '}' might be missing!
+In this situation, the best way will be to copy/paste the new test of *coming change* in the *current change*, and then *accept the current change*.
 
 #### Add the files
 
