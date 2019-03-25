@@ -177,7 +177,8 @@ This time, we will reproduce the behaviour we are really supposed to have with *
 ### Feature Creation
 
 The first steps are identical to the previous exercise's, so you can:
-* create a branch feature
+* create a branch feature: *feature/complete_client_desc*
+* modify the text of *src/_texts/ClientInformations.ytextfunction* to add more details
 * create a commit
 * push to the repository
 
