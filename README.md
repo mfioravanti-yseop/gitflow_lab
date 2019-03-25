@@ -2,22 +2,22 @@
 
 ## Introduction
 
-This workshop is for Yseopers that would like to refresh their knowledge about Git and understand the functioning of Gitflow. It is progressive, so for an advance Git user, the first parts can be processed very fast to focus on the harder ones. Each one at his own pace :-)
+This workshop is for Yseopers that would like to refresh their knowledge about Git and understand the functioning of GitFlow. It is progressive, so for an advance Git user, the first parts can be processed very fast to focus on the harder ones. Each one at his own pace :-)
 
 It is based on [a very fancy documentation](https://eborel-yseop.github.io/git-guide/) written by Etienne Borel, and adapted to be a practical exercise.
 
-There is also a [version](https://mfioravanti-yseop.github.io/git_lab/) for stand-alone users that have just arrived in the company, or want to improve their skills, and want to do a auto-training.
+There is also a [version](https://mfioravanti-yseop.github.io/git_lab/) for stand-alone users that have just arrived in the company, or want to improve their skills, and want to do an auto-training. It is more centered on Git, though, and doesn't deal  much with GitFlow (Pull Requests can't be handled alone!).
 
 
 ## Prerequistes
 
 This lab won't explain to you what is Git, it takes for granted that you have an overall knowing of the subject! Also, you OS does not matter, but you should have installed the following items:
 
-- **Git**, obviously! And having a personal account on Github (generally: *yourlogin*-yseop)
+- **Git**, obviously! And having a personal account on Github, related to the workspace Yseop (generally: *yourlogin*-yseop)
 - **Visual Studio Code** (recommended, not mandatory)
 - a graphical Git Client, like **GitExtension** or **Gitkraken** (recommended, not mandatory)
 
-Almost all the instructions will be provided for both the command line and the Git Client, feel free to use whatever you want!
+Almost all the instructions will be provided for both the command line and a Git Client, feel free to use whatever you want!
 
 ## Let's Get Started!
 
@@ -68,7 +68,7 @@ In this exercise, you will complete all the following tasks:
 * push to the remote
 * integrate to *develop*
 
-For this first exercise, we don't use Pull Requests, because we really want to understand the deep functioning of Git in this case.
+For this first exercise, we don't use Pull Requests, because we really want to apprehend the deep functioning of Git first. That's an important step to understand what Github is really doing in the background.
 
 
 ### Create a Branch
