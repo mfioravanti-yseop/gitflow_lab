@@ -311,7 +311,7 @@ NB: Note that with Gitkraken, the all *rebase* operation can be made very easily
 
 After doing that, you can continue the PR process.
 
-### 2.6 Handle conflicts
+### Handle conflicts
 
 We are now going to address the harder part of Git: conflicts! It will occur very often that your work will enter in conflict with the work of someone else. Sadly, the first arrived wins, and the other one has to handle the conflicts. You can sometimes negociate with the first commiter to do the painful merge together, but in case you are alone, the first rule is: don't panic!
 
@@ -342,7 +342,7 @@ Once you have the list, you can try and fix them.
 
 Conflicts look like that in the conflicted file:
 
-```js
+```xml
 <<<<<<< develop
 <yseop-yml:text>The product is very fancy, shiny, and modern. You will love it!</yseop-yml:text>
 =======
@@ -393,7 +393,7 @@ Command Line | Gitkraken
 ```git rebase --abort``` | Click on the button *Abort Rebase*.
 
 
-## Exercise 3: use the stash
+## Exercise 4: use the stash
 
 Let's do a pause in complex features and learn an easy one :-) We will now talk about the **stash**.
 It is a tool that allows you to put apart your modifications for a moment, so you can proceed to other operations. For example, it is not possible to do a rebase if you have current modifications not commited. 
@@ -457,7 +457,7 @@ Now you can commit, push and merge your modifications in *develop*.
 ![After Stash](/doc/images/after_stash.PNG)
 
 
-## Exercise 4: Rearrange commits
+## Exercise 5: Rearrange commits
 
 Sometimes, when you are doing a lot of features in the same branch, you commit your modifications incrementally, and the history becomes ugly! So It would be nice to rearrange it afterward.
 
