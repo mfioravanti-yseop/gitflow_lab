@@ -129,7 +129,7 @@ After those operations, your modifications are still only on your computer! You 
 
 Command Line | Gitkraken
 ------------ | -------------
-```git push feature/client_desc <remote_name>``` | Click on *Push* on the top, and select your remote: ![Push](/doc/images/push_branch.PNG)
+```git push feature/client_desc <remote_name>``` | Click on *Push* on the top.
 
 ### Integrate to *develop*
 
