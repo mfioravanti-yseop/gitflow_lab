@@ -203,11 +203,39 @@ Once you have filled everything that is interesting for your PR, you can click o
 
 ### Comment a Pull Request
 
+Once the Pull Request has been created, it's up to the reviewer! Reviewers can be developers, testers, or practically anyone that can give a point of view on the feature!
+
+A review consist in reading the code, adding some comments, asking questions, suggesting changes, ...  The reviewer also has to test the feature. It is obviously not prohibited to discuss it out of PR if the PR owner is physically near to you ;-) There can be several reviewers, and they can agree to split the tasks (one reading code, one testing, for eg.).
+
+Reviewing the code, the reviewer can go in the tab *Files changed* and add comments, by clicking the little "+" on the left of a code line. After commenting, he can choose to continue the review (the comment will stay in *pending* state) and add more comments, or finish the review.
+
+![Comment code PR](/doc/images/pr_comment.PNG)
+
+When all the code reviewing and testing tasks are completed, the reviewer has 3 options:
+* **Comment**: the reviewer doesn't feel ready for taking his decision, he just want to ask questions.
+* **Approve**: the reviewer is ok with the feature, and give its approval.
+* **Request Changes**: the reviewer decides that something must be fixed or changed before merging the feature. He previously detailed it in its comments in the code, or add a comment to his review to explain exactly which changes he expects.
+
+![Request changes PR](/doc/images/pr_request_changes.PNG)
+
+The owner of the PR will then be notified of the reviewer's decision. If changes are requested, he will have to fix it, and push another commit. And so on, until he finally receive an approbation!
 
 
 ### Merge it
 
+After receiving the approbation, the owner is now ready to merge the Pull Request! Or, almost: he must unsure that all the checks have passed. For example, the branch can be not up-to-date with the base branch if it has changed in the meantime. In this case, the owner must proceed, in local, to a **merge** or a **rebase**. Note hat a rebase is cleaner, but can sometimes cancel the reviews (if a *force push* was necessary)! You will then have to ask for the reviewers to accept it again.
 
+When you are finally ready, let's merge it! It is very easy, you just have to click on the button **Merge Pull Request**. Note that if you prefer not keeping the history of all the commits, you can click on the arrow on the right on the button, and choose **Squash and merge**: all your commits will then be gathered in a single one, and the comment will list the commits before squashing. There is also a third option, **Rebase and merge**. This one must be used very carefully, because the new code in the base branch can interact with yours, even though Github didn't detect conflicts.
+
+![PR ready for merge](/doc/images/pr_approved.PNG)
+
+Please unsure that the message of the squashing commit also respect the naming convention!
+
+After merging, Github confirm you that the merge was successful and that you can delete the branch safely. You should really do it, because the feature is over, and the branch is now useless!
+
+![PR merged](/doc/images/pr_merged.PNG)
+
+Then, on your local computer, you can go in Git and process to a pull/fetch: you will see that the base branch (here, *develop*) now contains a new commit! You can also delete the feature branch locally.
 
 
 
