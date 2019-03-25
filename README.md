@@ -409,34 +409,28 @@ Command Line | Result
 
 Let's now test that! 
 
-NB: As for the previous exercise, this one is only for testing the feature, but in general, the modifications come from another developer ;-)
 
+### User 1: create a working branch
 
-### Step 1: create a working branch
+* create a new branch named *feature/signature*
 
-* create a new branch named *feature/display_substract*
+### User 2: change the current state of develop
 
-### Step 2: change the current state of develop
-
-* create a new branch *feature/substract* and switch to it
-* modify the file *file3.js* and add a function *substract*
+* create a new branch *feature/brief_company* and switch to it
+* add the file *src/_texts/BriefCompany.ytextfunction*, that describes the vendor company
 * commit and push your modifications on the repository
 * merge your branch in *develop*
+(the use of PR is not necessary in this exercise)
 
-### Step 3: go back to your current working branch
+### User 1: use the new feature of develop
 
-* switch back to your branch *feature/display_substract*
-* modify the file *main.js*: add in the main function a line that display the result of an operation *substract*, even if it's not defined in the current branch:
-
-```js
-console.log('result of the substraction:', substract(8, 5));
-```
+* open the file *src/_texts/finalDocument.ytextfunction*, and call the text function \BriefCompany.
 
 Don't commit!
 
 You are now in this situation :
 
-* you know there is a new function to substract numbers in *develop* (thanks to the commit name), and you'll like to use it. 
+* you know there is a new textfunction that do a brief of the company in *develop* (thanks to the commit name), and you'll like to use it. 
 * You don't want to commit and push your work for now because it won't compile.
 
 That's the right time to use the stash!
@@ -445,7 +439,7 @@ Command Line | Gitkraken
 ------------ | -------------
 ```git stash save``` | Click on the button **Stash** on the top of the window.
 
-Now you can rebase your work on *develop*, so you'll get the function *substract*. This done, you can put back your modifications in the working tree:
+Now you can rebase your work on *develop*, so you'll get the textfunction *BriefCompany*. This done, you can put back your modifications in the working tree:
 
 Command Line | Gitkraken
 ------------ | -------------
@@ -454,265 +448,16 @@ Command Line | Gitkraken
 
 Now you can commit, push and merge your modifications in *develop*.
 
-![After Stash](/doc/images/after_stash.PNG)
-
-
-## Exercise 5: Rearrange commits
-
-Sometimes, when you are doing a lot of features in the same branch, you commit your modifications incrementally, and the history becomes ugly! So It would be nice to rearrange it afterward.
-
-NB: For this part, I will only show you with Gitkraken: the command line version is very tricky, and unless you are an Ops on a server without access to the UI, you won't need it.
-
-### Step 1: Create one commit with a lot of code
-
-You will first create a branch *feature/string_op*. In the file *file2.js*, you will write:
-* a function to concat two strings: *myConcat(string,string)*
-* a function that returns the size of a string: *mySize(string)*
-* a function that returns the position of a given character in a string: *myPosition(string,char)*
-
-Since this is not the purpose of the exercise, if you don't know how to do that, fill your function with wathever you want!
-Then, put all of them in a single commit (the name is not important), and push it on the repository.
-
-### Step 2: Go backward
-
-Now, you've just realized that it would have been better to separate the functions in three different commits! That's what we are going to do with the instruction **reset**.
-
-First, let me explain how this work. There are 3 options (actually, 5, but some are unused) that are very impactful on the result!
-
-Command Line | Result
------------- | -------------
-```git reset --soft``` | Reset your branch to a specified commit, but the modifications since this commit are still here
-```git reset --mixed``` | Same, but the modifications are not marked for commit (meaning the **add** has already been done)
-```git reset --hard``` | Really reset to this commit, so the modifications after that are lost! (CAUTION WITH THIS ONE!)
-
-In practice, the first option does not really make sense, and the third is not what we are interested in here, because we don't want to loose our functions. So let's try the second one.
-
-To do that, you will right-click on the last commit of *develop*, and select *reset feature/string_op to this commit*, and then *Mixed*.
-
-![Reset Mixed](/doc/images/reset_mixed.PNG)
-
-So now, you can see your branch is at the same level of *develop*, and your modifications are still here and ready for commit (unstaged files).
-
-### Step 3: Commit individually each function
-
-You can click on the file *file2.js* on the right part, and you'll see all your modifications on the left. You now need to select only the line that you are interested in, and stage them. So first, take the first function.
-
-![Stage Selected Lines](/doc/images/stage_lines.PNG)
-
-Your file, on the right, will now be split in two:
-* if you click on *file2.js* on the bottom part, you will see what you have just staged
-* if you click on *file2.js* on the top part, you will see what is still not staged
-
-So you can now create a commit named *feat: function to concat strings*.
-
-That's it! Now do the same thing with the two other functions.
-
-### Step 4: Force push
-
-When you have rewritten history and the previous version has been pushed to the remote, Git won't allow you to push your modifications the traditional way. That's what the mode **push force** is aimed for.
-I strongly recommend you to be very careful with this one!!
-
-In Gitkraken, you have to use the button push as usual, but Git will detect a problem and suggest you two options:
-
-![Force Push](/doc/images/force_push.PNG)
-
-The first one is to be used when someone else has worked on the same branch, and you want to keep his modifications. That's actually the most common case, but here, we know that the only data we are going to ovewrite is our bad commits! So you can use the option *force push*.
-Gitkraken will ask you again if you're sure, because, I insist, it's a dangerous feature because it can erase some code!
-
-After that, your three commits will be neat, and you can merge all that in *develop*.
-
-Note: *develop* and *master* are protected against the option *force push* in all our repositories! So you can only do that on your branches.
-
-
-## Exercise 5: Interactive Rebase \[Advanced\]
-
-This part is a hard one, especially because it is not possible with Gitkraken (but it is with GitExtension). But this feature is so nice to use! If you don't feel at ease, you can skip this part, but since you are in a sandbox, I suggest you to try anyway :-)
-
-The previous exercise was really useful because we wanted to rewrite everything. But what if we have already made some commits right, and we don't want to touch them? You can do that with the **interactive rebase**.
-
-### Step 1: preparation
-
-For this exercise, we will create a branch named feature/misc and modify *file1.js* as follows:
-
-* Create a function *mySecondFunction* that displays a text of your choice, and commit with *feat: my second function*
-* Modify the message in the function and commit with: *feat: change the second function*
-* Create a function *myThirdFunction* that displays another message, and commit with: *WIP*
-* Create a function *myFourthFunction* that displays another message, and commit with: *feat: my fourth function*
-
-![Before Interactive Rebase](/doc/images/before_interactive_rebase.PNG)
-
-### Step 2: interactive rebase
-
-So now, where are we? Here are the changes we should do on this history:
-* The second commit is not useful, we would like to merge it into the previous one
-* The commit message *WIP* is ugly, we would like to rename it
-
-Let's open a console in the git folder, and lauch the following instruction:
-
-```
-git rebase -i develop
-```
-
-A file will open, with all the commits that have been added after develop (if you are on Linux, that will be directly in the terminal).
-
-![Start Interactive Rebase](/doc/images/interactive_rebase_start.PNG)
-
-Here's what we will do:
-
-* We won't do nothing on the first commit
-* The second one needs to be merged in the first one, so we will use the option **fixup** (f)
-* The third one needs to be renamed, so use **reword** (r). Don't change the commit message here, you'll be ask for the it later!
-* Leave the fourth commit untouched
-
-We should obtain:
-
-![End Interactive Rebase](/doc/images/interactive_rebase_end.PNG)
-
-Now just save the file and close it. The rebase will proceed, every step being logged in the terminal. When the operation needs information for you (like the commit message), it will ask you. You just have to do your modification, save, and close the file.
-
-![Reword Interactive Rebase](/doc/images/interactive_rebase_commit.PNG)
-
-When it's over, you should have obtained that:
-
-![Success Interactive Rebase](/doc/images/interactive_rebase_success.PNG)
-
-As you can see in Gitkraken, your history is not very nice:
-
-![Result Interactive Rebase](/doc/images/interactive_rebase_result.PNG)
-
-You can now push and merge it, as usual.
-
-NB: You could also have used **squash** instead of **fixup** to keep the old commit message in the description, but here, we didn't want to do that. Remind this operation anyway, because it is very common when you are doing PRs on Github.
-
-NB2: You could also reorder the commits simply by inverting two lines in the file. Obviously, if the change is not possible, the abort will fail!
-
-### Precautions
-
-When you are doing tricky operations like this, I suggest you create a tag at the position *before* rewriting. Like this, if you decided to abort the operation, or if you have made some mistakes, you'll just have to do a *reset --hard* on the tag and restore your branch to its previous state.
-Please note also that you can abort the interactive rebase, just as for the standard rebase, with the instruction:
-
-```
-git rebase --abort
-```
-
-For further readings on the subject of rewriting history, here is [a very useful link](https://git-scm.com/book/fr/v2/Utilitaires-Git-R%C3%A9%C3%A9crire-l%E2%80%99historique)
-
-## Exercise 6: oops! \[Advanced\]
-
-Sometimes, it happens: you overwrite your work or someone else's by doing a destructive operation. The good news is that with Git, nothing is ever really lost. We are going to see how to do that.
-
-My source here is this [amazing page](https://git-scm.com/book/fr/v2/Les-tripes-de-Git-Maintenance-et-r%C3%A9cup%C3%A9ration-de-donn%C3%A9es) that explains very well the different solutions.
-
-### Step 1: overwrite the data
-
-You will first create a branch named *feature/oops*, in which you will create a file *blibli.txt* at the root of the project, write a text inside, commit (*feat: blibli*) and push it.
-
-Just for the exercise (because it is so unnatural!), you will do a **reset --hard** of your branch on *develop*. 
-
-Now, you create a file *blublu.txt*, write a text inside, commit (*feat: blublu*) and **force push it**. 
-
-### Step 2: recover data
-
-Oops, so we have overwritten our commit *blibli*, and the file *blibli.txt* has been erased! Don't panic, we will save it, because Git keeps everything, and you just have to find it back! 
-To do that, you will open a terminal and type:
-
-```
-git reflog
-```
-
-You will obtain a list of all the operations that have been realized on your repo:
-
-![Reflog](/doc/images/reflog.PNG)
-
-We can see here the commit *feat: blibli*, that's the one we wan to save. To do that, we will create a recover branch on this specific commit, by using its identifier.
-
-```
-git tag recover f65fa2d
-```
-
-NB: you can also do that with a branch, but I find it easier with a tag.
-
-You can now see in Gitkraken that the commit has been retrieved and tagged:
-
-![Recover](/doc/images/recover.PNG)
-
-So now it is very easy, you just have to do a cherry pick on this commit!
-
-![Recover Done](/doc/images/recover_done.PNG)
-
-Now you can push your branch to the remote, and merge it in develop!
-
-
-## Exercise 7: clean up
-
-We arrive at the end of our lab: the clean up! Now that we have done all those operations, we have a lot of branches and tags that are not necessary anymore, so we will remove them (except *develop* and *master*).
-
-Note that those operations should be done along the way, and not in the end! That is just for the lab that we waited ;-)
-
-### Remove tags
-
-To remove the tag *recovery*:
-
-Command Line | Gitkraken
------------- | -------------
-```git tag -d recover && git push --delete origin recover``` | Right click on the tag and select *delete recover locally*. You'll be asked if you want to remove also them from the remotes.
-
-NB: for the tag *recover*, you don't have to remove it remotely, since it has not been pushed. Indeed, it needs a special command to push a tag to the remote. For the tags created with Gitraken, however, you will need to remove them remotely, because Gitkraken automatically push on all remotes the tags you create!
-
-### Remove branches
-
-To remove a branch locally:
-
-Command Line | Gitkraken
------------- | -------------
-```git branch -d feature/oops``` | Right click on the branch *feature/oops* and select *delete feature/oops*. You'll be asked if you want to remove also them from the remotes.
-
-To remove a branch remotely:
-
-Command Line | Gitkraken
------------- | -------------
-```git push <remote_name> --delete feature/oops``` | Right click on the branch *feature/oops* and select *delete <remote_name>feature/oops*.
-
-Do those operations with all the branches we have created in this exercise!
-
-### Update the branches state
-
-Sometimes, mostly when you have used PRs to integrate and remove the distant branches, you would like to inform your local repo that those branches don't exist anymore. Here is the command to use:
-
-```
-git remote prune <your_repo>
-```
 
 
 ## That's it!
 
-This lab is finished! On a day-to-day basis, I suggest you use [this very useful documentation](https://eborel-yseop.github.io/git-guide/). You can also find a Git cheat sheet at the end of this documentation.
+This workshop is finished! You can find a lot more of advanced usages [here](https://mfioravanti-yseop.github.io/git_lab/), like changing history or recovering lost data.
 
-Thanks for your time, and don't hesitate to make some feedbacks to improve this lab!
+Don't hesitate too to dig in the subject with the [GitFlow Feature Documentation](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
-## Bibliography
+On a day-to-day basis, I suggest you use [this very useful documentation](https://eborel-yseop.github.io/git-guide/). You can also find a Git cheat sheet at the end of this documentation.
 
-Here is a list of the sources quoted in this lab:
+Thanks for your time, and don't hesitate to make some feedbacks to improve this workshop!
 
-Gitflow:
-https://datasift.github.io/gitflow/IntroducingGitFlow.html
-
-Rewriting history:
-https://git-scm.com/book/fr/v2/Utilitaires-Git-R%C3%A9%C3%A9crire-l%E2%80%99historique)
-
-Save lost data:
-https://git-scm.com/book/fr/v2/Les-tripes-de-Git-Maintenance-et-r%C3%A9cup%C3%A9ration-de-donn%C3%A9es
-
-
-And other useful links:
-
-Understand the Fast Forward:
-https://confluence.atlassian.com/bitbucket/git-fast-forwards-and-branch-management-329977726.html
-
-Git Ignore:
-https://fr.atlassian.com/git/tutorials/saving-changes/gitignore
-
-
-Gitflow:
-https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
