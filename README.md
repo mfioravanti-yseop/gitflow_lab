@@ -344,7 +344,7 @@ Conflicts look like that in the conflicted file:
 
 ```js
 <<<<<<< develop
-<yseop-yml:text>The product is very fancy, shiny, and modern. You're gonna love it!</yseop-yml:text>
+<yseop-yml:text>The product is very fancy, shiny, and modern. You will love it!</yseop-yml:text>
 =======
 <yseop-yml:text>This is the product description. If you like it, you can also buy the Shiny Thing or the Bright Stuff.</yseop-yml:text>
 >>>>>>> feat: add information about the related products
