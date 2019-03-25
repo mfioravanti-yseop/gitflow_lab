@@ -287,7 +287,7 @@ Directly merge | Rebase first
 ![Merge](/doc/images/merge.PNG) | ![Rebase](/doc/images/rebase.PNG)
 
 
-You can see that the history for the rebase is clearer! So that's the method we will use here.
+You can see that the history for the rebase is clearer! So that's the method we will use here. We can also do a fast-forward, as indicated in the previous exercise.
 
 First, you will checkout the branck *feature/product_desc*.
 
