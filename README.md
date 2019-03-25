@@ -237,11 +237,14 @@ After merging, Github confirm you that the merge was successful and that you can
 
 Then, on your local computer, you can go in Git and process to a pull/fetch: you will see that the base branch (here, *develop*) now contains a new commit! You can also delete the feature branch locally.
 
+![after PR](/doc/images/after_pr.PNG)
+
+NB: there is a feature **git flow** in the last versions of Git that allows you to handle features easily in command line. Feel free to use it or not! You can find a full documentation [here](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
 
 ## Exercise 3: Create features in parallel
 
-Generally, there are several developers doing features on a project, and we will simulate that! So you will repeat the same steps as for *Exercise 1*, everytime creating your branch from *develop*, and ***not doing yet the integration of the feature in develop!***.
+Generally, there are several developers doing features on a project, and we will test that in this exercise! The first three steps will repeat the same steps as for *Exercise 1*, everytime creating your branch from *develop*, and ***not doing yet the integration of the feature in develop!***.
 
 ### 2.1: Add a feature
 
