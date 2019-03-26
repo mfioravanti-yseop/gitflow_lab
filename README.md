@@ -21,6 +21,8 @@ Almost all the instructions will be provided for both the command line and a Git
 
 ## Let's Get Started!
 
+The project we will be working on is [here](https://github.com/mfioravanti-yseop/gitflow_workshop).
+
 When you want to start working on a project versioned with Git, there are two ways to proceed:
 * either you **clone** an existing project, meaning you create a copy on your computer to work on it
 * or you create a project from scrach on your computer, and you **init** it, so you could later save it on Git
